@@ -41,6 +41,7 @@
 > - Eclipse 4.x
 > - JUnit 4
 > - EasyMock 3.2
+> - Git / Github
 
 ------------------  
 
