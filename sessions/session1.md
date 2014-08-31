@@ -2,7 +2,7 @@
 % (815311A)
 % Lab Session 1
 
-# Instructor
+# Infos
 
 - Davide Fucci (name dot surname at oulu dot fi)
 - Slides available at http://unioulu-tol.github.io/SQATLab
