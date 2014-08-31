@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Unit-testing with JUnit</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Unit-testing with JUnit</h1>
+    <h3 class="date"></h3>
+</section>
+
+<section id="junit" class="slide level1">
+<h1>JUnit</h1>
+<blockquote>
+<p>JUnit is a <strong>unit-testing</strong> framework for the Java programming language (<em>Wikipedia</em>)</p>
+</blockquote>
+</section>
+<section id="unit-testing" class="slide level1">
+<h1>Unit-testing</h1>
+<blockquote>
+<p>The goal of unit testing is to <strong>isolate</strong> each part of the program and show that the individual parts are <strong>correct</strong>. A unit-test provides a strict, written <strong>contract</strong> that the piece of code must satisfy (<em>Wikipedia</em>)</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="dhh.png" alt="or is it?" /><figcaption>or is it?</figcaption>
+</figure>
+</section>
+<section id="whats-a-unit" class="slide level1">
+<h1>What’s a unit?</h1>
+<ul>
+<li class="fragment">A method?</li>
+<li class="fragment">An object?</li>
+<li class="fragment">Interaction between objects?</li>
+</ul>
+</section>
+<section id="why-unit-test-then" class="slide level1">
+<h1>Why unit-test, then?</h1>
+<figure>
+<img src="why_testing.png" alt="unit-testing gives you more bang for your buck" /><figcaption>unit-testing gives you more bang for your buck</figcaption>
+</figure>
+</section>
+<section id="a-good-test-is..." class="slide level1">
+<h1>A good test is...</h1>
+<ul>
+<li class="fragment">Accurate</li>
+<li class="fragment">Independent</li>
+<li class="fragment">Reusable</li>
+<li class="fragment">Easy to run</li>
+<li class="fragment">Fast to run</li>
+</ul>
+</section>
+<section id="unit-tests-3as" class="slide level1">
+<h1>Unit-tests 3As</h1>
+<ul>
+<li class="fragment"><strong>A</strong>rrange</li>
+<li class="fragment"><strong>A</strong>ct</li>
+<li class="fragment"><strong>A</strong>ssert</li>
+</ul>
+</section>
+<section id="assert" class="slide level1">
+<h1>Assert</h1>
+<p>verb <em>\ə-‘sərt, a-\</em></p>
+<ul>
+<li>to state smth in a strong and definite way</li>
+<li>to demand that other people accept or respect smth</li>
+</ul>
+</section>
+<section id="in-java..." class="slide level1">
+<h1>In Java...</h1>
+<ul>
+<li class="fragment">Annotate a method with <strong><span class="citation" data-cites="Test">@Test</span></strong></li>
+<li class="fragment">it has <strong>public</strong> access</li>
+<li class="fragment">it returns <strong>void</strong></li>
+<li class="fragment">contains a call to an <strong>assert</strong> method</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="optionally">optionally</h3>
+<ul>
+<li class="fragment">fixture annotated with <strong><span class="citation" data-cites="Before">@Before</span></strong> and <strong><span class="citation" data-cites="After">@After</span></strong></li>
+<li class="fragment">can be grouped in a <strong>Suite</strong></li>
+<li class="fragment">you can test your exceptions, too! <strong><span class="citation" data-cites="Test">@Test</span>(expected=Exception)</strong></li>
+</ul>
+</section>
+<section id="junit-asserts" class="slide level1">
+<h1>JUnit Asserts</h1>
+<ul>
+<li>assertEquals()</li>
+<li>assertTrue()</li>
+<li>assertNull()</li>
+</ul>
+<p><a href="http://junit.sourceforge.net/javadoc/org/junit/Assert.html">Javadoc</a></p>
+</section>
+<section id="when-stop-testing" class="slide level1">
+<h1>When stop testing?</h1>
+<ul>
+<li>you tested (everything) that could possibly break!</li>
+<li>you can provide better value by doing something else</li>
+</ul>
+</section>
+<section id="shopping-cart" class="slide level1">
+<h1>Shopping Cart</h1>
+<ul>
+<li>add items</li>
+<li>remove items</li>
+<li>ask for total numbers of items</li>
+<li>ask for total price of items</li>
+<li>handle exception(s)</li>
+</ul>
+</section>
+<section id="randori" class="slide level1">
+<h1>Randori</h1>
+<h3 id="乱取り">(乱取り)</h3>
+<p>in Japanese martial arts describes free-style practice</p>
+</section>
+<section id="sqat-randori" class="slide level1">
+<h1>SQAT Randori</h1>
+<ul>
+<li>I will present an exercise</li>
+<li>A pair, from the audience, implements the exercise</li>
+<li>The pair <strong>thinks aloud</strong></li>
+<li>Half of the pair swaps back to the audience every 5 mins</li>
+<li>The audience gives advices, asks for clarifications</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'sky', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
