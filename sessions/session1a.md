@@ -20,8 +20,12 @@
 > - An object?
 > - Interaction between objects?
 
-# Why unit-test, then?
-![unit-testing gives you more bang for your buck](why_testing.png)
+# Why testing?
+![](why_testing.png)
+
+# When stop testing?
+- you tested (everything) that could possibly break!
+- you can provide better value by doing something else
 
 # A good test is...
 > - Accurate
@@ -61,10 +65,6 @@ verb *\\ə-‘sərt, a-\\*
   
 
 [Javadoc](http://junit.sourceforge.net/javadoc/org/junit/Assert.html)
-
-# When stop testing?
-- you tested (everything) that could possibly break!
-- you can provide better value by doing something else
 
 # Shopping Cart
 - add items
