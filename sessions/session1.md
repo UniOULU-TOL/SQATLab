@@ -4,7 +4,7 @@
 
 # Instructor
 
-- Davide Fucci (name.surname at oulu dot fi)
+- Davide Fucci (name dot surname at oulu dot fi)
 - Slides available at http://unioulu-tol.github.io/SQATLab
 
 # How to pass
