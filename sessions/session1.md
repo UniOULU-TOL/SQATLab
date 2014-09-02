@@ -36,12 +36,13 @@
 > - **Decide a group and stick with it!**
 
 # Our stack
-> - Linux/OSX
+> - Windows 7
 > - Java 5+
 > - Eclipse 4.x
 > - JUnit 4
 > - EasyMock 3.2
 > - Git / Github
+> - Basecamp
 
 ------------------  
 

@@ -24,8 +24,17 @@
 ![](why_testing.png)
 
 # When stop testing?
-- you tested (everything) that could possibly break!
-- you can provide better value by doing something else
+> - you can provide better value by doing something else
+> - you tested (everything) that could possibly break!
+> - <strike>you reach 100% coverage</strike> 
+
+# Code coverage
+> a measure used to describe the degree to which the source code of a program is tested by a particular test suite (Wikipedia)
+
+> - Function
+> - Statement
+> - Branch 
+> - Condition
 
 # A good test is...
 > - Accurate
@@ -45,7 +54,7 @@ verb *\\ə-‘sərt, a-\\*
 - to state smth in a strong and definite way
 - to demand that other people accept or respect smth
 
-# In Java...
+# In JUnit...
 > - Annotate a method with **@Test**
 > - it has **public** access
 > - it returns **void**

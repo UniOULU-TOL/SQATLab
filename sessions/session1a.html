@@ -68,8 +68,21 @@
 <section id="when-stop-testing" class="slide level1">
 <h1>When stop testing?</h1>
 <ul>
-<li>you tested (everything) that could possibly break!</li>
-<li>you can provide better value by doing something else</li>
+<li class="fragment">you can provide better value by doing something else</li>
+<li class="fragment">you tested (everything) that could possibly break!</li>
+<li class="fragment"><strike>you reach 100% coverage</strike></li>
+</ul>
+</section>
+<section id="code-coverage" class="slide level1">
+<h1>Code coverage</h1>
+<blockquote>
+<p>a measure used to describe the degree to which the source code of a program is tested by a particular test suite</p>
+</blockquote>
+<ul>
+<li class="fragment">Function</li>
+<li class="fragment">Statement</li>
+<li class="fragment">Branch</li>
+<li class="fragment">Condition</li>
 </ul>
 </section>
 <section id="a-good-test-is..." class="slide level1">
@@ -98,8 +111,8 @@
 <li>to demand that other people accept or respect smth</li>
 </ul>
 </section>
-<section id="in-java..." class="slide level1">
-<h1>In Java...</h1>
+<section id="in-junit..." class="slide level1">
+<h1>In JUnit...</h1>
 <ul>
 <li class="fragment">Annotate a method with <strong><span class="citation" data-cites="Test">@Test</span></strong></li>
 <li class="fragment">it has <strong>public</strong> access</li>
@@ -162,7 +175,7 @@
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: false,
+        controls: true,
         progress: true,
         history: true,
         center: true,
