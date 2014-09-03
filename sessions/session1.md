@@ -28,10 +28,11 @@
 
 # A typical session
 
-- Lasts ~3 hours
+* Lasts ~3 hours
 	* Half _lecture_ 
+	* **Break**
 	* Half hands on exercise
-	* S6 and S7 exercise only
+* S6 and S7 exercise only
 
 > - **Decide a group and stick with it!**
 
