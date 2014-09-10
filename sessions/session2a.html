@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="with examples" />
+  <title>Refactoring</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Refactoring</h1>
+    <h2 class="author">with examples</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section id="definition" class="slide level1">
+<h1>Definition</h1>
+<blockquote>
+<p>A <strong>disciplined</strong> technique for <strong>restructuring</strong> internal code without changing its <strong>behaviour</strong>, in order to fix <strong>code smells</strong></p>
+</blockquote>
+</section>
+<section id="code-smell" class="slide level1">
+<h1>Code smell</h1>
+<blockquote>
+<p>Code that is not technically incorrect and do not currently prevent the program from functioning. Instead, they indicate weaknesses in design that may be slowing down development or increasing the risk of bugs or failures in the future. (Wikipedia)</p>
+</blockquote>
+<ul>
+<li class="fragment">A code smell is <strong>NOT</strong> a bug!</li>
+</ul>
+</section>
+<section id="refactoring-catalog" class="slide level1">
+<h1>Refactoring catalog</h1>
+<p><a href="http://refactoring.com/catalog" class="uri">http://refactoring.com/catalog</a></p>
+</section>
+<section id="consolidate-conditionals" class="slide level1">
+<h1>Consolidate conditionals</h1>
+<ul>
+<li>Multiple conditionals can be extracted into method(s)</li>
+<li>They have the same result</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="consolidate-conditionals-example">Consolidate conditionals example</h3>
+<p><strong>Before</strong></p>
+<pre><code>Double disabilityAmount() {
+    if (seniority &lt; 2) return 0;
+    if (monthsDisabled &gt; 12) return 0;
+    if (isPartTime) return 0;
+    // compute the disability amount</code></pre>
+<p><strong>After</strong></p>
+<pre><code>Double disabilityAmount() {
+    if (isNotEligableForDisability()) return 0;
+    // compute the disability amount</code></pre>
+</section>
+<section id="extract-class" class="slide level1">
+<h1>Extract class</h1>
+<ul>
+<li>You have a <strong>God</strong> class</li>
+<li>Split it according to the data/intentions</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="extract-class-example">Extract class example</h3>
+<p><strong>Before</strong></p>
+<pre><code>public class Person {
+    String name;
+    String officeAreaCode;
+    String officeNumber;
+    String getTelephoneNumber(){}</code></pre>
+<p><strong>After</strong></p>
+<pre><code>public class Person {
+    String name;
+    String getTelephoneNumber(){}
+
+public class TelephoneNumber {
+    String officeAreaCode;
+    String officeNumber;
+    String getTelephoneNumber(){}</code></pre>
+</section>
+<section id="extract-interface" class="slide level1">
+<h1>Extract interface</h1>
+<ul>
+<li>Many classes use the same subset of methods</li>
+<li>Many classes have methods in common</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="extract-interface-example">Extract interface example</h3>
+<p><strong>Before</strong></p>
+<pre><code>public class Employee {
+    Double getRate()
+    boolean hasSpecialSkills()
+    String getName()
+    String getDept()</code></pre>
+<p><strong>After</strong></p>
+<pre><code>public interface Billable {
+    Double getRate()
+    boolean hasSpecialSkills()
+
+
+public class Employee implements Billable {
+    Double getRate()
+    boolean hasSpecialSkills()
+    String getName()
+    String getDept()</code></pre>
+</section>
+<section id="introduce-parameter-object" class="slide level1">
+<h1>Introduce parameter object</h1>
+<ul>
+<li>The same parameters are used together</li>
+<li>Replace them with an object</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="introduce-parameter-object-example">Introduce parameter object example</h3>
+<p><strong>Before</strong></p>
+<pre><code>public class Customer {
+    Double amountInvoiced(Date start, Date end)
+    Double amountReceived(Date start, Date end)
+    Double amountOverdue(Date start, Date end)</code></pre>
+<p><strong>After</strong></p>
+<pre><code>public class DateRange {
+    Date start;
+    Date end;
+    boolean validDateRange()
+
+
+public class Customer {
+    Double amountInvoiced(DateRange range)
+    Double amountReceived(DateRange range)
+    Double amountOverdue(DateRange range)</code></pre>
+</section>
+<section id="preserve-whole-object" class="slide level1">
+<h1>Preserve whole object</h1>
+<ul>
+<li>The same parameters are passed to a method</li>
+<li>Pass the whole object to the method</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="preserve-whole-object-example">Preserve whole object example</h3>
+<p><strong>Before</strong></p>
+<pre><code>DaysRange range = new DaysRange(int high, int low)
+...
+int low = range.getLow();
+int high = range.getHigh();
+this.withinRange(low, high);</code></pre>
+<p><strong>After</strong></p>
+<pre><code>this.withinRange(range);</code></pre>
+</section>
+<section id="parametrize-method" class="slide level1">
+<h1>Parametrize method</h1>
+<ul>
+<li>Many methods do similar things but with different values</li>
+<li>Use a parameter to for the value</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="parametrize-method-example">Parametrize method example</h3>
+<p><strong>Before</strong></p>
+<pre><code>Double fivePercentRaise(){}
+Double tenPercenRaise(){};</code></pre>
+<p><strong>After</strong></p>
+<pre><code>Double raise(int percentage)</code></pre>
+</section>
+<section id="replace-parameter-with-method" class="slide level1">
+<h1>Replace parameter with method</h1>
+<ul>
+<li>The result of a method is passed to another method</li>
+<li>The receiver can also invoke the method</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="replace-parameter-with-method-example">Replace parameter with method example</h3>
+<p><strong>Before</strong></p>
+<pre><code>int basePrice = quantity * itemPrice;
+int discount = calculateDiscount();
+Double finalPrice = discountedPrice(basePrice, discount)</code></pre>
+<p><strong>After</strong></p>
+<pre><code>int basePrice = quantity * itemPrice;
+Double finalPrice = discountedPrice(basePrice)</code></pre>
+</section>
+<section id="others" class="slide level1">
+<h1>Others</h1>
+<ul>
+<li>Method should communicate its responsibility
+<ul>
+<li>A clumsy method name <em>smells</em> bad</li>
+</ul></li>
+<li>Extract <em>magic number</em> into constant</li>
+<li><strong>In general</strong>
+<ul>
+<li>DRY (Don’t repeat yourself)</li>
+<li>KISS (Keep it simple, stupid)</li>
+</ul></li>
+</ul>
+</section>
+<section id="tdd-randori" class="slide level1">
+<h1>TDD Randori</h1>
+<ol type="1">
+<li>The pair
+<ul>
+<li>P1 writes a test that fails</li>
+<li>P2 writes the implementation to pass</li>
+</ul></li>
+<li>The audience
+<ul>
+<li>suggests refactoring</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>if GREEN &amp;&amp; !timer.isOver then COMMIT<br /> if RED &amp;&amp; time.isOver then REVERT</p>
+</blockquote>
+</section>
+    </div>
+  </div>
+
+
+
+  <script src="reveal.js/lib/css/zenburn.css"></script>
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'sky', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
