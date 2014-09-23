@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Session 3" />
+  <title>SOLID Principles</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">SOLID Principles</h1>
+    <h2 class="author">Session 3</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section id="remember-code-smells" class="slide level1">
+<h1>Remember code smells?</h1>
+<p>A code base tends to <em>rot</em></p>
+<ul>
+<li class="fragment">Rigidity</li>
+<li class="fragment">Fragility</li>
+<li class="fragment">Immobility</li>
+<li class="fragment">Repetition</li>
+<li class="fragment">Opacity</li>
+</ul>
+</section>
+<section id="remember-refactoring" class="slide level1">
+<h1>Remember refactoring?</h1>
+<p><em>Reconstruct</em> the code in order to fix a code smell</p>
+<ul>
+<li class="fragment">What if I want to avoid code smell (or bad design)?</li>
+<li class="fragment">What if I want to make code more testable?</li>
+<li class="fragment">What if I want to make developers happy?</li>
+</ul>
+</section>
+<section id="s.o.l.i.d.-code" class="slide level1">
+<h1>S.O.L.I.D. code</h1>
+<p>An acronym made of acronyms</p>
+<ul>
+<li class="fragment"><strong>S</strong>RP: Single Responsibility Principle</li>
+<li class="fragment"><strong>O</strong>CP: Open Closed Principle</li>
+<li class="fragment"><strong>L</strong>SP: Liskov Substitution Principle</li>
+<li class="fragment"><strong>I</strong>SP: Interface Segregation Principle</li>
+<li class="fragment"><strong>D</strong>IP: Dependency Inversion Principle</li>
+</ul>
+</section>
+<section id="single-responsibility" class="slide level1">
+<h1>SINGLE RESPONSIBILITY</h1>
+<blockquote>
+<p>Just because you can, it does’t mean you should</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<h3 id="a-class-should">A class should:</h3>
+<ul>
+<li><strong>Serve a single purpose</strong></li>
+<li><strong>Have one, and one only, reason to change</strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="use">Use:</h3>
+<ul>
+<li>Extract class/method</li>
+<li>Rename</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><strong>Bad example</strong></p>
+<pre><code>interface IEmail {
+    public void setSender(String sender);
+    public void setReceiver(String receiver);
+    public void setContent(String content);
+}
+class Email implements IEmail {
+    public void setSender(String sender) {// set sender; }
+    public void setReceiver(String receiver) {// set receiver; }
+    public void setContent(String content) {// set content; }
+}</code></pre>
+</section>
+<section class="slide level1">
+
+<p><strong>Good example</strong></p>
+<pre><code>interface IEmail {
+    public void setSender(String sender);
+    public void setReceiver(String receiver);
+    public void setContent(IContent content);
+}
+
+interface Content {
+    public String getAsString(); // used for serialization
+}
+
+class Email implements IEmail {
+    public void setSender(String sender) {// set sender; }
+    public void setReceiver(String receiver) {// set receiver; }
+    public void setContent(IContent content) {// set content; }
+}</code></pre>
+</section>
+<section id="open-closed" class="slide level1">
+<h1>OPEN-CLOSED</h1>
+<blockquote>
+<p>You don’t need brain surgery to put a hat on</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<h3 id="a-class-should-be">A class should be:</h3>
+<ul>
+<li><strong>Open for extension</strong></li>
+<li><strong>Closed for modification</strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="use-1">Use:</h3>
+<ul>
+<li>Inheritance (<em>is-a</em> relationship)</li>
+<li>Composition (<em>has-a</em> relationship)</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><strong>Bad example</strong></p>
+<pre><code>class GraphicEditor {
+    public void drawShape(Shape s) {
+        if (s.m_type==1) drawRectangle(s);
+        else if (s.m_type==2) drawCircle(s);
+    }
+    public void drawCircle(Circle r) {....}
+    public void drawRectangle(Rectangle r) {....}
+}
+
+class Shape {
+    int m_type;
+}
+
+class Rectangle extends Shape {
+    Rectangle() {
+        super.m_type=1;
+    }
+}
+
+class Circle extends Shape {
+    Circle() {
+        super.m_type=2;
+    }
+}</code></pre>
+</section>
+<section class="slide level1">
+
+<p><strong>Good example</strong></p>
+<pre><code>class GraphicEditor {
+    public void drawShape(Shape s) {
+        s.draw();
+    }
+}
+
+interface Shape {
+    void draw();
+}
+
+class Rectangle implements Shape  {
+    public void draw() { // draw the rectangle}
+}
+
+class Circle implements Shape  {
+    public void draw() { // draw the circle}
+} </code></pre>
+</section>
+<section id="liskov-substitution" class="slide level1">
+<h1>LISKOV SUBSTITUTION</h1>
+<blockquote>
+<p>If it looks like a duck and quacks like a duck but needs battery, you probably have the wrong abstraction</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<h3 id="a-sub-class-should">A (sub) class should:</h3>
+<ul>
+<li><strong>be substitutable for its base class</strong></li>
+<li><strong>not screw up the client code</strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="use-2">Use:</h3>
+<ul>
+<li>Inheritance based on behaviour</li>
+<li>Do not violate behaviour of parent class</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><strong>Bad example</strong></p>
+<pre><code>class Rectangle {
+    private int m_width;
+    private int m_height;
+    public void setWidth(int width){m_width = width;}
+    public void setHeight(int height){m_height = height;}
+    public int getWidth(){return m_width;}
+    public int getHeight(){return m_height;}
+    public int getArea(){return m_width * m_height;}    
+}
+
+class Square extends Rectangle {
+    public void setWidth(int width){
+        m_width = width;
+        m_height = width;
+    }
+}
+    public void setHeight(int height){
+        m_width = height;
+        m_height = height;
+    }
+}
+
+class LSPTest {
+    private static Rectangle getNewRectangle(){
+        return new Square();
+}
+
+public static void main (String args[]){
+    Rectangle r = LSPTest.getNewRectangle();
+    r.setWidth(5);
+    r.setHeight(10);
+    System.out.println(r.getArea());
+    //The area is 100 instead of 50.
+    }
+}</code></pre>
+</section>
+<section class="slide level1">
+
+<p><strong>Good example</strong></p>
+<pre><code>class Rectangle {
+    public void setHeight(int height)
+    public void setWidth(int width)
+    ...
+}
+
+class Square {
+    public void setWidth(int width)
+}</code></pre>
+</section>
+<section id="interface-segregation" class="slide level1">
+<h1>Interface segregation</h1>
+<blockquote>
+<p>Clients should not depend on interfaces they don’t use</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<h3 id="an-interface-should-be">An interface should be:</h3>
+<ul>
+<li><strong>fine grained</strong></li>
+<li><strong>client specific</strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="use-3">Use:</h3>
+<ul>
+<li>Lean inheritance</li>
+<li>Don’t worry about adding a new Interface</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><strong>Bad example</strong></p>
+<pre><code>interface IWorker {
+    public void work();
+    public void eat();
+}
+
+class Worker implements IWorker{
+    public void work() {// ....working}
+    public void eat() {// ...... eating in launch break}
+}
+
+class SuperWorker implements IWorker {
+    public void work() { //.... working much more}
+    public void eat() { //.... eating in launch break}
+}
+
+class Manager {
+    IWorker worker;
+    public void setWorker(IWorker w) {worker=w;}
+    public void manage() {
+        worker.work();
+    }
+}</code></pre>
+</section>
+<section class="slide level1">
+
+<p><strong>Good example</strong></p>
+<pre><code>interface IWorkable {
+    public void work();
+}
+
+interface IFeedable{
+    public void eat();
+}
+
+class Worker implements IWorkable, IFeedable{
+    public void work() {// ....working}
+    public void eat() {//.... eating in launch break}
+}
+
+class Robot implements IWorkable{
+    public void work() {// ....working}
+}
+
+class SuperWorker implements IWorkable, IFeedable{
+    public void work() {//.... working much more}
+    public void eat() {//.... eating in launch break}
+}</code></pre>
+</section>
+<section id="dependency-inversion" class="slide level1">
+<h1>Dependency Inversion</h1>
+<blockquote>
+<p>Would you solder a lamp directly to the wall’s wires?</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<h3 id="a-class-should-1">A class should:</h3>
+<ul>
+<li><strong>depend on abstractions</strong></li>
+<li><strong>do not depend on concretions</strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="use-4">Use:</h3>
+<ul>
+<li>Dependency injection</li>
+<li>Aspect Oriented Programming</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><strong>Bad example</strong></p>
+<pre><code>class Worker {
+    public void work() {// ....working}
+}
+
+class Manager {
+    Worker worker;
+    public void setWorker(Worker w) {worker = w;}
+    public void manage() {worker.work();}
+}
+class SuperWorker {
+    public void work() {//.... working much more}
+}</code></pre>
+</section>
+<section class="slide level1">
+
+<p><strong>Good example</strong></p>
+<pre><code>interface IWorker {
+    public void work();
+}
+
+class Worker implements IWorker{
+    public void work() {// ....working}
+}
+
+class SuperWorker  implements IWorker{
+    public void work() {//.... working much more}
+}
+
+class Manager {
+    IWorker worker;
+    public void setWorker(IWorker w) {worker = w;}
+    public void manage() {worker.work();}
+}</code></pre>
+</section>
+<section id="solid-principles-are-not-the-silver-bullet" class="slide level1">
+<h1>SOLID principles are <strong>not</strong> the silver bullet</h1>
+</section>
+<section id="apply-when-it-makes-sense" class="slide level1">
+<h1>Apply when it makes <strong>sense</strong></h1>
+<ul>
+<li class="fragment"><strong>Use your brain</strong></li>
+</ul>
+</section>
+<section id="solid-principles-help-you-to-acquire-ood-habits" class="slide level1">
+<h1>SOLID principles help you to acquire OOD <strong>habits</strong></h1>
+</section>
+<section class="slide level1">
+
+<blockquote>
+<p>I am not a great software engineer, I am a software engineer with great habits<br /> (Kent Beck)</p>
+</blockquote>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'sky', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
