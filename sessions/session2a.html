@@ -11,19 +11,15 @@
   <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
     <style type="text/css">code{white-space: pre;}</style>
     <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-      if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-    </script>
-    <!--[if lt IE 9]>
-    <script src="reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
+
+
+    <!-- For syntax highlighting using highlight.js-->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
   <div class="reveal">
@@ -244,8 +240,6 @@ Double finalPrice = discountedPrice(basePrice)</code></pre>
     </div>
   </div>
 
-
-  <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"/>
   <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.min.js"></script>
 
@@ -266,9 +260,10 @@ Double finalPrice = discountedPrice(basePrice)</code></pre>
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
           { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 //          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
 //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]});
     </script>
-    </body>
+  </body>
 </html>
