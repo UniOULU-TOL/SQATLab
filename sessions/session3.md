@@ -17,6 +17,8 @@ _Reconstruct_ the code in order to fix a code smell
 > - What if I want to make code more testable?
 > - What if I want to make developers happy?
 
+---------------------------------------
+
 # S.O.L.I.D. code
 
 An acronym made of acronyms 
@@ -349,3 +351,9 @@ An acronym made of acronyms
 
 > I am not a great software engineer, I am a software engineer with great habits  
 	(Kent Beck)
+
+--------------------------------------
+
+### Ok, but why you are telling me this in a (Software Quality and) Testing course?  
+> - Because tests are the first _clients_ of your system... 
+> - ...and the client is always right!
