@@ -1,12 +1,13 @@
 % Testing using Mocks
 % Session 4
 
-# Remember the point of SOLID principles?
+# Remember the SOLID principles?
 > - Make your code testable
 
 # Testability
 > Degree to which a system or component facilitates the
-establishment of a test criteria and the performance of tests to  determine whether those criteria have been met. (IEEE 610.12)
+establishment of a test criteria and the performance of tests to  determine whether those criteria have been met.  
+(IEEE 610.12)
 
 -----------------------
 
@@ -21,19 +22,19 @@ establishment of a test criteria and the performance of tests to  determine whet
 - Controllability is difficult!
 
 
-# The dependency can be:
+# The curse of dependencies:
 - hard to observe
 - difficult to setup
 - slow
 - tighten to the UI
 - not existing
 
-# Remember what is *not* unit-testing?
+# Remember what is **not** unit-testing?
 
 # Introducing mock objects
-Fake the implementation of object hard to control so you can observe them
+Fake the implementation of objects that are hard to control, so you can observe them
 
-# Mock objects
+# Mock object
 - Check method calls
 - Check arguments
 - Test interaction with *your* system 
@@ -61,4 +62,10 @@ Mock out *Sensor* with an object that behaves like it!
 > - One concrete class, mock the rest
 > - Law of Demeter aka *“Only talk to your friends”*
 
-# EasyMock demo
+# Demo
+#### Let’s implement a Stocks portfolio
+- You can add stocks to your portfolio
+- You can ask for the total value of your portfolio
+- The value of your stocks is given by a **market** 
+- The market service is an **external** dependence
+- Let’s mock the market service
