@@ -1,4 +1,4 @@
 SQATLab
 =======
 
-!Software Quality and Testing Lab material
+Software Quality and Testing Lab material
