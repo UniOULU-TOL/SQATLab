@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Sudoku</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+  <div class="page-header">
+<h1>Sudoku verifier</h1>
+  </div>
+<p>Sudoku is a game with few simple rules, where the goal is to place nine sets of positive digits (1...9) into the cells of a fixed grid structure (i.e. board).</p>
+<p>The Sudoku board (or global grid) consists of a 3x3 arrangement of sub-grids, and each sub-grid is a 3x3 arrangement of cells. This yields a 9x9 arrangement of cells on the Sudoku board.</p>
+<p>A valid Sudoku solution should conform to the following rules:</p>
+<ul>
+<li>R1: A cell in a Sudoku game can only store positive digits, i.e. 1...9.</li>
+<li>R2: All digits appear only once in a sub-grid, i.e. they cannot repeat.</li>
+<li>R3: A digit can appear only once in the rows of the global grid.</li>
+<li>R4: A digit can appear only once in the columns of the global grid.</li>
+</ul>
+<p><strong>Your task is to check the validity of a given solution for a Sudoku game</strong></p>
+<ul>
+<li>You should read the candidate solution from a string variable, which should be exactly 81 characters long, i.e. first 9 are the first row, second 9 are the second row etc.</li>
+<li>You shall check whether the provided string follows the correct format (i.e. 9 rows with 9 entries in each row).</li>
+<li>You shall check the validity of the candidate solution against the rules listed above.</li>
+<li>You program shall provide the functionality to return an integer code on the validity of the solution:
+<ul>
+<li>Return 0: means it is a valid Sudoku solution</li>
+<li>Return -1: means it is violating Rule #1</li>
+<li>Return -2: means it is violating Rule #2</li>
+<li>Return -3: means it is violating Rule #3</li>
+<li>Return -4: means it is violating Rule #4</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>You should implement the functionality with a single API method with the following signature:</li>
+</ul>
+<p><code>public int verify(String candidateSolution)</code></p>
+</div>
+</body>
+</html>
