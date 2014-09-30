@@ -1,6 +1,10 @@
 % Testing using Mocks
 % Session 4
 
+# A bit of setup before we start
+- Download this version of Eclipse [http://j.mp/eclipse4s](http://j.mp/eclipse4s)
+- Extract it where you like (your home directory is fine)
+
 # Remember the SOLID principles?
 > - Make your code testable
 
