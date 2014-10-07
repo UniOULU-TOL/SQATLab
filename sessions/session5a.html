@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Session 5" />
+  <title>Intro to Mutation Testing</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Intro to Mutation Testing</h1>
+    <h2 class="author">Session 5</h2>
+    <h3 class="date"></h3>
+      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</section>
+
+<section id="coverage-tells-you-which-part-of-the-system-is-exercised-by-tests" class="slide level1">
+<h1>Coverage tells you which part of the system is exercised by tests</h1>
+</section>
+<section id="unit-tests-tell-you-about-the-quality-of-your-code" class="slide level1">
+<h1>Unit-tests tell you about the quality of your code</h1>
+</section>
+<section id="but..." class="slide level1">
+<h1>but...</h1>
+</section>
+<section class="slide level1" data-background="watch.jpg">
+</section>
+<section id="mutation-testing" class="slide level1">
+<h1>Mutation testing</h1>
+<p>Evaluate the quality of tests by:</p>
+<ul>
+<li class="fragment">modifying the program</li>
+<li class="fragment">using mutation operators</li>
+<li class="fragment">if the test fails it kills the mutant</li>
+<li class="fragment">if the test still pass the mutant survives</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>Before</p>
+<pre><code>int max (int a, int b){
+    return (a &lt; b) ? b : a;
+}</code></pre>
+<p>After (<em>change conditional operators</em>)</p>
+<pre><code>int max (int a, int b){
+    return (a &lt;= b) ? b : a;
+}</code></pre>
+</section>
+<section id="mutation-problems" class="slide level1">
+<h1>Mutation problems</h1>
+<ul>
+<li>Huge number of mutants
+<ul>
+<li>500 classes</li>
+<li>20 tests per class</li>
+<li>10 mutants per class</li>
+<li>1 ms per test<br /><strong>13h 53m 20s</strong></li>
+</ul></li>
+<li>Equivalent mutant
+<ul>
+<li>Manual inspection</li>
+</ul></li>
+<li>Never ending mutants
+<ul>
+<li>Infinite loops</li>
+</ul></li>
+<li>Hard to integrate into TDD</li>
+</ul>
+</section>
+<section id="demo" class="slide level1">
+<h1>Demo</h1>
+<p>PIT <a href="http://pitest.org" class="uri">http://pitest.org</a></p>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'sky', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
