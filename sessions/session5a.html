@@ -33,15 +33,16 @@
 <section>
     <h1 class="title">Intro to Mutation Testing</h1>
     <h2 class="author">Session 5</h2>
-    <h3 class="date"></h3>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
       <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+<h3 class="date"></h3>
 </section>
 
-<section id="coverage-tells-you-which-part-of-the-system-is-exercised-by-tests" class="slide level1">
-<h1>Coverage tells you which part of the system is exercised by tests</h1>
+<section id="remember-code-coverage" class="slide level1">
+<h1>Remember code coverage?</h1>
 </section>
-<section id="unit-tests-tell-you-about-the-quality-of-your-code" class="slide level1">
-<h1>Unit-tests tell you about the quality of your code</h1>
+<section id="unit-tests-are-the-watchmen-of-your-code" class="slide level1">
+<h1>Unit-tests are the watchmen of your code</h1>
 </section>
 <section id="but..." class="slide level1">
 <h1>but...</h1>
@@ -69,25 +70,35 @@
     return (a &lt;= b) ? b : a;
 }</code></pre>
 </section>
-<section id="mutation-problems" class="slide level1">
-<h1>Mutation problems</h1>
-<ul>
-<li>Huge number of mutants
+<section id="limitations" class="slide level1">
+<h1>Limitations</h1>
+</section>
+<section id="time-taking" class="slide level1">
+<h1>Time taking</h1>
 <ul>
 <li>500 classes</li>
 <li>20 tests per class</li>
 <li>10 mutants per class</li>
 <li>1 ms per test<br /><strong>13h 53m 20s</strong></li>
-</ul></li>
-<li>Equivalent mutant
+</ul>
+</section>
+<section id="equivalent-mutant" class="slide level1">
+<h1>Equivalent mutant</h1>
 <ul>
 <li>Manual inspection</li>
-</ul></li>
-<li>Never ending mutants
+</ul>
+</section>
+<section id="never-ending-mutants" class="slide level1">
+<h1>Never ending mutants</h1>
 <ul>
 <li>Infinite loops</li>
-</ul></li>
-<li>Hard to integrate into TDD</li>
+</ul>
+</section>
+<section id="hard-to-integrate-into-existing-practices" class="slide level1">
+<h1>Hard to integrate into existing practices</h1>
+<ul>
+<li>unit-testing</li>
+<li>TDD</li>
 </ul>
 </section>
 <section id="demo" class="slide level1">

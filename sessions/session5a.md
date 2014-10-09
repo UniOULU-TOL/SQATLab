@@ -1,8 +1,8 @@
 % Intro to Mutation Testing
 % Session 5
 
-# Coverage tells you which part of the system is exercised by tests
-# Unit-tests tell you about the quality of your code
+# Remember code coverage?
+# Unit-tests are the watchmen of your code
 # but...
 
 -----------------------
@@ -33,21 +33,26 @@ After (_change conditional operators_)
         return (a <= b) ? b : a;
     }
 
-# Mutation problems
-* Huge number of mutants
-	* 500 classes
-	* 20 tests per class
-	* 10 mutants per class
-	* 1 ms per test   
+# Limitations
+
+-----------------------------
+
+# Time taking
+* 500 classes
+* 20 tests per class
+* 10 mutants per class
+* 1 ms per test  
 **13h 53m 20s**
 
-* Equivalent mutant
-	* Manual inspection
+# Equivalent mutant
+* Manual inspection
 
-* Never ending mutants
-	* Infinite loops 
+# Never ending mutants
+* Infinite loops 
 
-* Hard to integrate into TDD
+# Hard to integrate into existing practices
+* unit-testing
+* TDD
 
 # Demo
 PIT [http://pitest.org](http://pitest.org)
