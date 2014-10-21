@@ -1,0 +1,65 @@
+<html><head>
+	<meta charset="UTF-8">
+	<title>MusicPhone</title>
+	<meta name="generator" content="iA Writer 2.0 (5963)">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+<h1>MusicPhone</h1>
+  </div>
+
+<p>MusicPhone is an application that runs on a GPS-enabled, MP3-capable mobile phone. MusicPhone will make recommendations for artists the user may like and find upcoming concert events for artists using data gathered from the Last.FM website.</p>
+
+<p>Your goal during the project is to implement the necessary logic to enable MusicPhone to make recommendations and plan a travel itinerary to concert events.</p>
+
+<h2>Ramp-up</h2>
+
+<ul>
+<li>Run the project (Select the project, right click and Run As –&gt; Java Application, then select App - app), and see three UI windows appear</li>
+<li>Run SmokeTest (Select the project, right click and Run As –&gt; JUnit Test) and see the green bar. Check the structure of the sample test in SmokeTest.java to get familiar with the application.</li>
+<li>Take 5–10 minutes to review the information in the provided documentation.</li>
+</ul>
+
+<h2>Compute distance to a concert</h2>
+
+<p>Your task for this session will be to implement the necessary functionality to compute the distance to a concert.</p>
+
+<p>The user will see how far away upcoming concert events are for a particular artist based on the user’s current GPS position and the position of the concert’s venue. </p>
+
+<p>In the <em>DeviceManager</em> class (commons package), implement a public method with the signature <em>public static double computeDistance (GeoPoint, GeoPoint, String)</em> to calculate the great-circle distance between two geo-coded positions.<br>
+A geo-coded position is represented by a GeoPoint object that specifies a latitude and longitude in degrees. The method computes the great-circle distance between two points in either kilometres (“km”) or miles (“mi”) as specified by the third parameter.<br>
+Valid latitude values are between –90 and 90 degrees; valid longitude values are between –180 and 180 degrees.<br>
+Sometimes a GeoPoint has an invalid latitude or longitude. In these cases, the distance returned should be null.</p>
+
+<p>The formula for the great-circle is:<br>
+Great Circle Distance = 2 * arcsin(min(1.0, <em>a</em>)) * Radius<br>
+Radius is the Earth’s radius in kilometres (6371.01) or miles (3958.76) </p>
+
+<p>In particular: </p>
+
+<figure>
+<img src="/Users/dfucci/Desktop/formula.png" alt="">
+</figure>
+
+<p>Where: </p>
+
+<ul>
+<li><p>LonD = longitude in degrees; </p></li>
+<li><p>LatD = latitude in degrees; </p></li>
+<li><p>LonR = longitude in radians;</p></li>
+<li><p>LatR = latitude in radians;</p></li>
+</ul>
+
+<p>Where <img src="/Users/dfucci/Desktop/formula2.png" alt=""> </p>
+
+<p>The following table contains some examples</p>
+
+<figure>
+<img src="/Users/dfucci/Desktop/examples.png" alt="">
+</figure>
+
+
+</div>
+</body></html>
