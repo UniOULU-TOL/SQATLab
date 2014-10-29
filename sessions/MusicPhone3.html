@@ -1,0 +1,94 @@
+<html><head>
+	<meta charset="UTF-8">
+	<title>MusicPhone3</title>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+   </head>
+<body>
+<div class="container">
+  <div class="header">
+<h1>Instructions</h1>
+  </div>
+
+<p>Your home assignment starts Wednesday October 28th, 12:00 EET. The deadline is Wednesday November 5th November, 12:00 EET.</p>
+
+<p>If you are a Microsoft Windows user, please use the Eclipse version available <a href="http://j.mp/eclipse4s">here</a>.</p>
+
+<p>You will also need to use Git in order to get the code base from Github and return it to me. You can download Git from <a href="http://git-scm.com/">here</a>.</p>
+
+<p>Once you have Git installed run the Git client. If you selected the UI version select <em>Clone existing repository</em>, and in the first field (<em>Source</em>) input https://github.com/<yourusername>/MusicPhone (replace <yourusername> with your Github username).
+In the second field (<em>Destination</em>) input an empty folder, on your computer, where you would like the project to be copied to.</p>
+
+<p>If you selected the command line version, move to a directory of your choice and input
+
+<pre><code>git clone https://github.com/yourusername/MusicPhone</code></pre> (replace yourusername with your Github username).<br>
+In both cases you will be prompted to insert your Github username and password.</p>
+
+<p>Git keeps track of the modification you make to the files in the project folder. When you are satisfied with your work you should commit it to your local repository.
+To do that, from the GUI version hit <em>Rescan</em> (this makes sure that all the modified files will be included in the commit), then <em>Stage changes</em>, finally input a commit message in the text area and hit <em>Commit</em>. </p>
+If you are getting an error message when trying to commit, you probably need to modify your preferences. You can do that from the Edit —&gt; Preferences menu, and set your user and email, finally hit <em>Save</em> and try to commit again. </p>
+
+<p>You must push (which means send your committed version of the code to the Github online repository), so that I can also see the results of your work. To do that, hit the <em>Push</em> button after a commit. You will be prompted for your Github’s username and password. </p>
+
+<p>The same is accomplished when using the command line by giving the following commands:</p>
+
+<p><pre><code>git add <i>nameofmodifiedfiles</i></code></pre>You can use wildcards as well<pre><code>git add *</code></pre>
+To get a list of the modified files in the current version:
+<pre><code>git status</code></pre>
+In order to commit issue the command:</p>
+<pre><code>git commit -m “<i>commit message</i>”</code></pre>
+Finally, to push the commits from the command line give
+<pre><code>git push origin master</pre></code>
+
+<p>To make sure that a push succeeded, point your browser to https://github.com/<i>yourusername</i>/MusicPhone, you should see your commit message on the page.<br />
+
+More documentation about Git can be found <a href="http://git-scm.com/doc">here</a>.</p>
+
+<p><strong>For the evaluation I will take into account the latest commit, before the deadline, visible on your Github repository</strong>. </p>
+
+<p>For the final home assignment your task is divided into two parts. You need to complete the first part in order to tackle the second one. </p>
+
+<p>Notice that, for the system to properly work, you will need the implementation of the two methods developed during lab session 6 and 7: <em>computeDistance</em> and <em>getRecommendations</em>.<br>
+You can continue to implement such methods by yourself, following the instructions received during the lab (<a href="http://unioulu-tol.github.io/SQATLab/sessions/MusicPhone.html">here</a> for <i>computeDistance </i>and <a href="http://unioulu-tol.github.io/SQATLab/sessions/MusicPhone2.html">here</a> for <i>getRecommendations</i>), or you can copy&amp;paste it from <a href="https://gist.github.com/dfucci/406331d6c6bffde6153d">here</a> (<em>computeDistance</em>) and <a href="https://gist.github.com/dfucci/cab3bd45148b7ee87f63">here</a> (<em>getRecommendations</em>).<br />
+Be aware, though, that since there are no tests for these methods there could be bugs.</p>
+
+<p>In case you want to consult the system architecture, please check it <a href="http://unioulu-tol.github.io/SQATLab/sessions/MusicPhoneDocs.html">here</a></p>
+
+<p>Please do not touch the UI classes. See Bonus task below.</p>
+
+<p><em>If you are using the Eclipse version used during lab, please make sure to start the episodeView plugin everytime you are working on the project.<br /> Go to Window —&gt; Show View —&gt; Other and select episodeView in the Other folder on the list. Press the green play button to start the plugin.</em></p>
+
+<h1>1st part - Find concerts for an artists</h1>
+
+<p>You will first need to implement the <em>getDestinationsForArtist</em> method of the <em>Recommender</em> class. </p>
+
+<p>When the user clicks on an artist’s name in the list of recommended artists, the UI calls the <em>getDestinationsForArtist</em> method to obtain a list of <em>Destination</em>, where each destination contains the info of an upcoming concert together with the distance to the concert’s location from the user’s current position. </p>
+
+<p>The user’s current position is provided by the GPS. If the concert’s location has an invalid GeoPoint, then the distance should be marked as null. You’ll need to use <em>IConnector</em> interface <em>getConcertForArtist</em> method, implemented in the <em>LastFmXmlConnector</em>, to complete this task. </p>
+
+<h1>2nd part - Compute an itinerary for concerts</h1>
+
+<p>Implement the <em>buildItineraryForArtists</em> method of the <em>Recommender</em> class. </p>
+
+<p>In the UI, the user can click on buttons that will add or remove a selected artist to a list of artists who the user would like to see in concert. Whenever this list is changed, the application recalculates an itinerary of upcoming concerts by calling this method. </p>
+
+<p>An itinerary is a list of <em>Destinations</em>, where each destination contains the concert information and the distance from the previous destination. The first destination’s distance is the distance from the user’s current position. The itinerary must be chronologically ordered according the the start date of the concerts in it. </p>
+
+<p>Satisfy the following constraints in any order, but tackling them one by one: </p>
+
+<ol>
+<li>The itinerary starts with the concert having the earliest start date for any of the selected artists.</li>
+<li>An artist has at most one concert in the itinerary (some artists may have no concerts, however).</li>
+<li>No two concerts in the itinerary may take place on the same day.</li>
+<li>If multiple artists have concerts on the same day,the itinerary includes only the concert that is closest in distance to the previous destination.</li>
+<li>If the same artist has multiple concerts on the same day, the itinerary includes only the concert that is closest in distance to the previous destination.</li>
+</ol>
+
+<strong>No acceptance tests are provided for this task!</strong>
+<h1>Bonus task</h1>
+<p>If you think you have correctly completed all the tasks in the project you can work on the bonus task.<br>
+For the bonus task you will hook-up the methods you have written so far to the user interface. <br />
+For example showing the list of artists/destinations in the correct panels, handling the clicks on buttons with the right behaviour, and so on.</p>
+Here is a little demo of how the complete MusicPhone should work
+<img src="MusicPhoneDemo.gif" alt="" />
+</div>
+</body></html>
