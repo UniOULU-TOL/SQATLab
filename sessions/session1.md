@@ -4,7 +4,7 @@
 
 # Infos
 
-- Davide Fucci (name dot surname at oulu dot fi)
+- Itir Karac (name dot surname at oulu dot fi)
 - Slides available at http://unioulu-tol.github.io/SQATLab
 
 # How to pass
@@ -17,14 +17,14 @@
 
 # Outline
 
-- S1 (wk 36) **Intro to unit-testing with JUnit**
-- S2 (wk 37) **Intro to Test-driven development**
+- S1 (wk 37) **Intro to unit-testing with JUnit**
+- S2 (wk 38) **Intro to Test-driven development**
 - S3 (wk 39) **Code smells and refactorings**
 - S4 (wk 40) **Unit-testing patterns**
 - S5 (wk 41) **Testing with mocks**
-- S6 (wk 42) **Project 1/3**
-- S7 (wk 43) **Project 2/3**
-- S8 (wk 44) **Project 3/3** (no class)
+- S6 (wk 42) **Project **
+- S7 (wk 43) **Project **
+
 
 # A typical session
 
