@@ -35,19 +35,30 @@
 </section>
 
 <section id="junit" class="slide level1">
+<h1>Unit-testing</h1>
+<blockquote>
+<p>JUnit is a <strong>unit-testing</strong> framework for the Java programming language (<em>Wikipedia</em>)</p>
+</blockquote>
+</section>
+<section id="junit-concepts" class="slide level1">
 <h1>JUnit</h1>
 <blockquote>
 <p>JUnit is a <strong>unit-testing</strong> framework for the Java programming language (<em>Wikipedia</em>)</p>
 </blockquote>
 </section>
-<section id="unit-testing" class="slide level1">
-<h1>Unit-testing</h1>
-<blockquote>
-<p>The goal of unit testing is to <strong>isolate</strong> each part of the program and show that the individual parts are <strong>correct</strong>. A unit-test provides a strict, written <strong>contract</strong> that the piece of code must satisfy (<em>Wikipedia</em>)</p>
-</blockquote>
-</section>
-<section class="slide level1">
 
+<section id="unit-testing" class="slide level1">
+<h1>JUnit Concepts</h1>
+<ul>
+<li class="fragment">Test class</li>
+<li class="fragment">Test</li>
+<li class="fragment">Assert</li>
+<li class="fragment">Test Suite</li>
+<li class="fragment">Test Runner</li>
+</ul>
+</section>
+
+<section class="slide level1">
 <figure>
 <img src="dhh.png" alt="or is it?" /><figcaption>or is it?</figcaption>
 </figure>
@@ -86,6 +97,14 @@
 <li class="fragment">Condition</li>
 </ul>
 </section>
+<section id="objectives" class="slide level1">
+<h1>Objectives</h1>
+<ul>
+<li class="fragment">Trustability</li>
+<li class="fragment">Readability</li>
+<li class="fragment">Maintainability</li>
+</ul>
+</section>
 <section id="a-good-test-is..." class="slide level1">
 <h1>A good test is...</h1>
 <ul>
@@ -96,6 +115,7 @@
 <li class="fragment">Fast to run</li>
 </ul>
 </section>
+
 <section id="unit-tests-3as" class="slide level1">
 <h1>Unit-tests 3As</h1>
 <ul>
@@ -133,9 +153,12 @@
 <section id="junit-asserts" class="slide level1">
 <h1>JUnit Asserts</h1>
 <ul>
-<li>assertEquals()</li>
+<li>assertEquals() </li>
 <li>assertTrue()</li>
 <li>assertNull()</li>
+<li>assertNotNull()</li>
+<li>assertArrayEquals()</li>
+
 </ul>
 <p><a href="http://junit.sourceforge.net/javadoc/org/junit/Assert.html">Javadoc</a></p>
 </section>
@@ -153,13 +176,14 @@
 <h1>Randori</h1>
 <h3 id="乱取り">(乱取り)</h3>
 <p>in Japanese martial arts describes free-style practice</p>
+<p><a href="randori.pdf"> Read more </a> abour Randori practice</p>
 </section>
 <section id="sqat-randori" class="slide level1">
 <h1>SQAT Randori</h1>
 <ul>
 <li>I will present an exercise</li>
-<li>A pair, from the audience, implements the exercise</li>
-<li>The pair <strong>thinks aloud</strong></li>
+<li>A pair (one driver, one navigator), from the audience, implements the exercise</li>
+<li>The navigator tells the driver what to do <strong>aloud</strong></li>
 <li>Half of the pair swaps back to the audience every 5 mins</li>
 <li>The audience gives advices, asks for clarifications</li>
 </ul>
