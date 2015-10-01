@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="(815311A)" />
+  <title>SQAT Lab</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="slide1" class="slide level1">
+<h3>Instructions: Set environment</h3>
+<ul>
+<li> Download Eclipse from <a href="https://dl.dropboxusercontent.com/u/3527393/eclipse-jee-mars.zip">this link</a> This eclipse distribution has the Besouro TDD plugin installed. This plugin logs the development activities and recognizes TDD behaviour. </li>
+
+
+<li> Read the exercise description: <a href="http://unioulu-tol.github.io/SQATLab/sessions/sudoku.html" target="blank">Sudoku exercise description</a> </li>
+<li> Go to the Github repository of the exercise: <a href="https://github.com/SQATLab2015/Sudoku" target="blank">Sudoku exercise project repository</a></li>
+<li> <strong> Fork </strong> your own copy to your account</li>
+<li> Install <a href="ithub Desktop https://desktop.github.com/" target="blank"> Github Desktop </a> (If you have not it)</li>
+<li> <strong> Clone in Desktop </strong> your own copy to your account. You should clone the repository on https://github.com/<strong>YourGithubaccountName</strong>/Sudoku </li>
+</ul>
+</section>
+
+<section id="slide2" class="slide level1">
+<h3>Instructions: Set up eclipse project and TDD plugin</h3>
+<ul>
+<li> Import the local project repository into Eclipse (In Eclipse File > Import > General > Existing Projects into Workspace)</li>
+<li> Open Besouro Plugin (In Eclipse Window > Show View > Other > Other > episodeView </li>
+<li> Open a source file and start Besouro TDD Plugin by clicking play button on plugin window. You should see "recording Sudoku" in the plugin Window.</strong></li>
+
+</ul>
+</section>
+
+<section id="slide3" class="slide level1">
+<h3>Instructions: Coding</h3>
+<ul>
+<li> Remember <strong>Test-Code-Refacor</strong> cycle </li>
+<li> Each cycle should be as <strong>short</strong> as possible </li>
+<li> Try to focus on <strong>small tasks</strong></li>
+<li> <strong>Simplest </strong>implementation!! Fake it if the implementation is not obvious </li>
+<li> <strong>REFACTOR</strong> (Extract variable, method) When refactoring do not change behavior</li>
+<li> On TDD plugin window observe your development process. You should see "Test-first", "refactoring" labels</li>
+</ul>
+</section>
+
+<section id="slide4" class="slide level1">
+<h3>Instructions: Updating your repository and submitting your work</h3>
+<ul>
+<li> On Github Desktop: <strong>Commit</strong> your changes. </li> 
+<li> On Github Desktop: <strong>Pull Request</strong> to submit your work to the owner of the original repository</li> 
+
+</ul>
+</section>
+
+
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'sky', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
