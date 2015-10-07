@@ -79,15 +79,30 @@
 <li>not existing</li>
 </ul>
 </section>
+
 <section id="remember-what-is-not-unit-testing" class="slide level1">
 <h1>Remember what is <strong>not</strong> unit-testing?</h1>
 </section>
+
+<section id="test-doubles" class="slide level1">
+<h3>Test doubles</h3>
+<p>Test doubles stand in for the real thing</p>
+<ul>
+<li><strong>Stubs</strong>: Simplest implementation of an interface. For example, Stub's method typically return hardcoded values. Astub looks like a duck.</li>
+<li><strong>Fakes</strong>: More sofiticated than stubs. Fake looks like a duck, walks like a duck even though it is not a duck.</li>
+<li><strong>Mocks</strong>: </li>
+</ul>
+</section>
+
 <section id="introducing-mock-objects" class="slide level1">
-<h1>Introducing mock objects</h1>
-<p>Fake the implementation of objects that are hard to control, so you can observe them</p>
+<h3>Introducing mock objects</h3>
+<ul>
+<li>Fake the implementation of objects that are hard to control, so you can observe them</li>
+<li>Incorporate assertions for verifying expected collaboration.</li>
+</ul>
 </section>
 <section id="mock-object" class="slide level1">
-<h1>Mock object</h1>
+<h3>Mock object</h3>
 <ul>
 <li>Check method calls</li>
 <li>Check arguments</li>
@@ -95,7 +110,7 @@
 </ul>
 </section>
 <section id="example" class="slide level1">
-<h1>Example</h1>
+<h3>Example</h3>
 <figure>
 <img src="mock.png" />
 </figure>
@@ -113,7 +128,7 @@
 <p>Mock out <em>Sensor</em> with an object that behaves like it!</p>
 </section>
 <section id="mock-lifecycle" class="slide level1">
-<h1>Mock lifecycle</h1>
+<h3>Mock lifecycle</h3>
 <ul>
 <li>Create</li>
 <li>Set expectations</li>
@@ -122,7 +137,7 @@
 </ul>
 </section>
 <section id="how-many-mocks" class="slide level1">
-<h1>How many mocks?</h1>
+<h3>How many mocks?</h3>
 <img src="mockall.jpg" alt="" />
 <ul>
 <li class="fragment">One concrete class, mock the rest</li>
@@ -130,7 +145,7 @@
 </ul>
 </section>
 <section id="demo" class="slide level1">
-<h1>Demo</h1>
+<h3>Demo</h3>
 <h4 id="lets-implement-a-stocks-portfolio">Let’s implement a Stocks portfolio</h4>
 <ul>
 <li>You can add stocks to your portfolio</li>
