@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="(815311A)" />
+  <title>SQAT Lab</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="slide1" class="slide level1">
+<h3>Instructions: </h3>
+<ul>
+<li> Open eclipse with Besouro TDD plugin. (Download from <a href="https://dl.dropboxusercontent.com/u/3527393/eclipse-jee-mars.zip">here</a> if you haven't downloaded last week.</li>
+<li> <a href="./ConwaysGameOfLife.pdf" target="blank">Game of life exercise description</a> </li>
+<ul>
+<li>Check out this <a href="http://www.bitstorm.org/gameoflife/" target="blank">online simulator</a> to see how it works. </li>
+</ul>
+<li> Go to the Github repository of the exercise: <a href="https://github.com/SQATLab/GameOfLife" target="blank">Game of life exercise project repository</a></li>
+<li> Select branch <strong> dev1 </strong> </li>
+<li> <strong> Fork </strong> your own copy to your account</li>
+<li> Go to your repositories page on Github. Link should be: https://github.com/<strong>YourGithubaccountName</strong>/GameOfLife</li>
+<li> Select branch <strong> dev1 </strong> Link should be: https://github.com/<strong>YourGithubaccountName</strong>/GameOfLife/tree/dev1</li>
+</ul>
+</section>
+
+<section id="slide2" class="slide level1">
+<h3>Instructions: Set up eclipse project and TDD plugin</h3>
+<ul>
+<li> Import your copy into Eclipse (In Eclipse File > Import > Git > Projects from Git > Clone URI)</li>
+<ul>
+<li> Import using the clone URL on your Github page (e.g. https://github.com/<strong>YourGithubaccountName</strong>/GameOfLife.git</li>
+<li> Choose dev1 branch to import</li>
+</ul>
+<li> <strong>Open Besouro TDD Plugin</strong>: (In Eclipse Window > Show View > Other > Other > episodeView </li>
+<li> Open a source file and <strong>start Besouro TDD Plugin</strong> by clicking play button on plugin window. You should see "recording GameOfLife" in the plugin Window.</strong></li>
+
+</ul>
+</section>
+
+<section id="slide3" class="slide level1">
+<h3>Instructions: Coding</h3>
+<ul>
+<li> Remember <strong>Test-Code-Refacor</strong> cycle </li>
+<li> Each cycle should be as <strong>short</strong> as possible </li>
+<li> Try to focus on <strong>small tasks</strong></li>
+<li> <strong>Simplest </strong>implementation!! Fake it if the implementation is not obvious </li>
+<li> <strong>REFACTOR, REFACTOR, REFACTOR</strong> (Extract variable, method) When refactoring do not change behavior</li>
+</ul>
+</section>
+
+<section id="slide4" class="slide level1">
+<h3>Instructions: Test Selection Strategies</h3>
+<ul>
+<li> Details first vs big picture first </li>
+<li> happy path vs error situations </li>
+<li> Try to focus on <strong>small tasks</strong></li>
+<li> high value vs. low hanging fruit </li>
+<li> exploring the uncertain vs. sticking with the familiar </li>
+</ul>
+</section>
+
+<section id="slide5" class="slide level1">
+<h3>Instructions: Updating your repository and submitting your work</h3>
+<ul>
+<li> In Eclipse open Git Repositories: Show View > Other > Git > Git Repositoies </li>
+<li> In Eclipse in Git Repositories Window: right-click your repository and <strong>Commit</strong> </li>
+<li> In Eclipse in Git Repositories Window: right-click your repository and <strong>Push</strong> </li>
+<li> Go to you repository page on Github.com and check that it is updated. </li>
+<li> When you are done create a Pull request. </li> 
+</ul>
+</section>
+
+
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'sky', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
