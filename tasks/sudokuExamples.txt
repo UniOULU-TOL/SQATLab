@@ -1,0 +1,102 @@
+String candidateSolution = ""
+                + "164957283"
+                + "385621974"
+                + "729438651"
+                + "537289416"
+                + "412763895"
+                + "698514327"
+                + "843195762"
+                + "956372148"
+                + "271846539";
+
+
+// Invalid row, column and subgrid
+// Can return -2, -3, -4, Should not return -1
+String candidateSolution = ""
+                + "122456783"
+                + "456789129"
+                + "789123456"
+                + "123456789"
+                + "456789123"
+                + "789123456"
+                + "123456789"
+                + "456789123"
+                + "789123456"; 
+
+// Invalid row and column, valid subgrids
+// Can return -3, -4, Should not return -1, -2
+String candidateSolution = ""
+                + "123456783"
+                + "456789129"
+                + "789123456"
+                + "123456789"
+                + "456789123"
+                + "789123456"
+                + "123456789"
+                + "456789123"
+                + "789123456";  
+
+// Invalid row and subgrid, valid columns
+// Can return -2, -3, Should not return -1, -4
+String candidateSolution = ""
+                + "113456789"
+                + "922345678"
+                + "891234567"
+                + "789123456"
+                + "678912345"
+                + "567891234"
+                + "456789123"
+                + "345678912"
+                + "234567891";
+
+// Invalid column and subgrid, valid row
+// Can return -2, -4, Should not return -1, -3
+String candidateSolution = ""
+                + "123456789"
+                + "192345678"
+                + "891234567"
+                + "789123456"
+                + "678912345"
+                + "567891234"
+                + "456789123"
+                + "345678912"
+                + "234567891";
+
+// Invalid subgrid, valid rows and columns
+// Should return only -2, NOT -1, -3, -4
+String candidateSolution = ""
+                + "123456789"
+                + "912345678"
+                + "891234567"
+                + "789123456"
+                + "678912345"
+                + "567891234"
+                + "456789123"
+                + "345678912"
+                + "234567891";
+
+// Invalid column, valid rows and subgrids
+// Should return only -4, NOT -1, -2, -3
+String candidateSolution = ""
+                + "123456789"
+                + "456789123"
+                + "789123456"
+                + "123456789"
+                + "456789123"
+                + "789123456"
+                + "123456789"
+                + "456789123"
+                + "789123456";
+
+// Invalid row, valid columns and subgrids
+// Should return only -3, NOT -1, -2, -4        
+String candidateSolution = ""
+                + "147147147"
+                + "258258258"
+                + "369369369"
+                + "471471471"
+                + "582582582"
+                + "693693693"
+                + "714714714"
+                + "825825825"
+                + "936936936";               
