@@ -31,7 +31,6 @@
 
 <section>
     <h1 class="title">Testing using Mocks</h1>
-    <h2 class="author">Session 4</h2>
     <h3 class="date"></h3>
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 </section>
@@ -84,13 +83,56 @@
 <h1>Remember what is <strong>not</strong> unit-testing?</h1>
 </section>
 
+<section id="test-doubles1" class="slide level1">
+<h3>Test doubles</h3>
+<p align="justify">Test doubles is a generic name used for objects and procedures that look and behave like their intended counterparts, but are actually simplified versions that reduce the complexity and facilitate unit testing. </p>
+<ul>
+<li><strong>Test stub</strong> </li>
+<li><strong>Fake object</strong> </li>
+<li><strong>Test stub</strong> </li>
+<li><strong>Test spy</strong> </li>
+<li><strong>Mock object</strong>: </li>
+</ul>
+</section>
+
+<section id="test-doubles_useful" class="slide level1">
+<h3>Test doubles are used to</h3>
+
+<ul>
+<li>Isolate code under test </li>
+<li>Speed up execution</li>
+<li>Make execution deterministic</li>
+<li>Gain access to hidden information</li>
+<li>Simulate special conditions</li>
+</ul>
+</section>
+
 <section id="test-doubles" class="slide level1">
 <h3>Test doubles</h3>
-<p>Test doubles stand in for the real thing</p>
+
 <ul>
-<li><strong>Stubs</strong>: Simplest implementation of an interface. For example, Stub's method typically return hardcoded values. Astub looks like a duck.</li>
-<li><strong>Fakes</strong>: More sofiticated than stubs. Fake looks like a duck, walks like a duck even though it is not a duck.</li>
-<li><strong>Mocks</strong>: </li>
+<li><strong>Stub</strong>: Implements the same interface (or parts of) the base class, without adding logic. For example, Stub's method typically return hardcoded values. A stub looks like a duck.</li>
+<li><strong>Fake</strong>: More sophisticated than stubs. Implements the same interface (or parts of) the base class, changing some functionality. e.g. using an in-memory database in the tests instead of doing real database access. Fake looks like a duck, walks like a duck even though it is not a duck.</li>
+<li><strong>Spy</strong>: Fake + reveals some aspects of internal functioning</li>
+<li><strong>Mock</strong>: Verify indirect output of the tested code, by first defining expectations before the test code is executed</li>
+</ul>
+</section>
+
+<section id="types-of-UT" class="slide level1">
+<h3>Types of unit testing</h3>
+
+<ul>
+<li><strong>State-based</strong>: Request a service, then check the expected results</li>
+<li><strong>Interaction-based</strong>: Perform a sequence of interactions between objects, then verify that the sequence of interactions happened as expected </li>
+</ul>
+</section>
+
+<section id="types-of-UT-Test-Doubles" class="slide level1">
+<h3>Types of unit testing and Test Doubles</h3>
+
+<ul>
+<li><strong>State-based</strong>: Request a service, then check the expected results >>> <strong> STUB, FAKE, SPY </strong></li>
+<li><strong>Interaction-based</strong>: Perform a sequence of interactions between objects, then verify that the sequence of interactions happened as expected >>> <strong> MOCK </strong> </li>
 </ul>
 </section>
 
@@ -144,6 +186,16 @@
 <li class="fragment">Law of Demeter aka <em>“Only talk to your friends”</em></li>
 </ul>
 </section>
+
+<section id="mock-tools" class="slide level1">
+<h3>Frameworks for mocks</h3>
+<ul>
+<li>EasyMock</li>
+<li>Mockito</li>
+<li>jMock</li>
+</ul>
+</section>
+
 <section id="demo" class="slide level1">
 <h3>Demo</h3>
 <h4 id="lets-implement-a-stocks-portfolio">Let’s implement a Stocks portfolio</h4>
